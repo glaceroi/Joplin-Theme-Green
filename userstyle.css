@@ -1,0 +1,700 @@
+/* For styling the rendered Markdown */
+/*****************************************************************************
+ * Theme of Glaceroi for joplin
+ * Rendered Markdown
+ *****************************************************************************/
+
+:root {
+  --font-size: 13px;
+
+  /* 标记的背景颜色 */
+  --mark-bgcolor: #bbdd66;
+
+  /* 渲染结果中，搜索结果背景色 */
+  --search-result-bgcolor: #f3b717;
+
+  /* 当前搜索中，搜索结果背景色 */
+  --current-search-result-bgcolor: #cf3f00;
+
+  /* 渲染——标题——背景色 */
+  --heading-bgcolor: #95e0da24;
+  /* 渲染——标题——边框色 */
+  --heading-border-color: #04a187;
+  /* 打印print——标题——文本色 */
+  --h1-text-color: #101010;
+  --h2-text-color: #181818;
+  --h3-text-color: #202020;
+  --h4-text-color: #282828;
+  --h5-text-color: #303030;
+  --h6-text-color: #383838;
+
+  /* 引用背景颜色 */
+  --blockquote-bg-color: #cef1eaf7;
+
+  /* 字体颜色——黑白背景都可用 */
+  --good-text-color: #01bea0;
+
+  /* 字体颜色——深色 */
+  --good-text-color-dark: #080808;
+
+  /* 字体颜色——浅色 */
+  --good-text-color-light: #ffffff;
+
+  /* 浅色字体背景颜色*/
+  --good-bg-color: #080808dc;
+
+
+}
+
+/*------BODY 全部字体大小到 --font-size ---------------------------------------*/
+body {
+  font-size: var(--font-size);
+  font-family: HarmonyOS Sans SC Medium;
+}
+
+/*------BODY 结束 ------------------------------------------------------------*/
+
+
+/*------ 段落——部分的属性设置 -------------------------------------------------*/
+
+p {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 0;
+  line-height: 28px;
+}
+
+/*------段落——结束------------------------------------------------------------*/
+
+
+/*------ 标题设置  ---------------------------------------------------*/
+/*------ 标题共同部分设置 ----------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+/*------ 标题单独部分设置 ----------------------------*/
+h1 {
+  background-color: var(--heading-bgcolor);
+  color: var(--heading-color);
+  border: 2px solid var(--heading-border-color);
+  border-radius: 3px;
+  text-align: center;
+  padding-top: 2em !important;
+  padding-bottom: 2em !important;
+  font-size: 2.2em;
+  line-height: 1.2;
+}
+
+h2 {
+  background-color: unset;
+  color: var(--heading-color);
+  font-size: 1.8em;
+  line-height: 1.4;
+  border-bottom: 3px solid var(--heading-border-color);
+}
+
+h3 {
+  background-color: var(--heading-bgcolor);
+  color: var(--heading-color);
+  font-size: 1.4em;
+  line-height: 1.43;
+  padding-left: 9px;
+  border-left: 3px solid var(--heading-border-color);
+}
+
+h4 {
+  background-color: unset;
+  color: var(--heading-color);
+  font-size: 1.2em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 6px;
+  padding-right: 6px;
+  display: inline-block;
+  border: 0.5px solid var(--heading-border-color);
+  border-left: 3px solid var(--heading-border-color);
+  border-right: 3px solid var(--heading-border-color);
+}
+
+h5 {
+  background-color: unset;
+  color: var(--heading-color);
+  font-size: 1.2em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-left: 2px solid var(--heading-border-color);
+}
+
+h6 {
+  background-color: unset;
+  color: var(--heading-color);
+  font-size: 1.2em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 6px;
+  padding-right: 6px;
+  display: inline-block;
+  border: 0.5px solid var(--heading-border-color);
+}
+
+/*------ 标题添加序号相关设置 --------------------------------------*/
+body {
+  counter-reset: h1counter;
+}
+
+h1 {
+  counter-reset: h2counter;
+}
+
+h2 {
+  counter-reset: h3counter;
+}
+
+h3 {
+  counter-reset: h4counter;
+}
+
+h4 {
+  counter-reset: h5counter;
+}
+
+h5 {
+  counter-reset: h6counter;
+}
+
+h6 {
+  counter-reset: unset;
+}
+
+
+h1:before {
+  counter-increment: h1counter;
+  content: counter(h1counter) ".\0000a0\0000a0";
+}
+
+h2:before {
+  counter-increment: h2counter;
+  content: counter(h1counter) "." counter(h2counter) ".\0000a0\0000a0";
+}
+
+h3:before {
+  counter-increment: h3counter;
+  content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+}
+
+h4:before {
+  counter-increment: h4counter;
+  content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) "."
+    counter(h4counter) ".\0000a0\0000a0";
+}
+
+h5:before {
+  counter-increment: h5counter;
+  content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) "."
+    counter(h4counter) "." counter(h5counter) ".\0000a0\0000a0";
+}
+
+h6:before {
+  counter-increment: h6counter;
+  content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) "."
+    counter(h4counter) "." counter(h5counter) "." counter(h6counter) ".\0000a0\0000a0";
+}
+
+/*------------------------------*/
+/*---标题设置——结束----------------------------------------------------------*/
+
+
+
+/*------ 列表 部分整体设置  -------------------------------------------------*/
+ul,
+ol {
+  color: unset;
+}
+
+/* 更改列表符号的颜色*/
+li::marker {
+  color: var(--heading-border-color);
+}
+
+
+/*--任务列表 checkbox align checkbox to the first line (baseline) ------------*/
+
+li.md-checkbox .checkbox-wrapper {
+  align-items: baseline;
+}
+
+/* 任务列表 选中后的样式 */
+.md-checkbox .checkbox-label-checked {
+  opacity: 0.7;
+  color: var(--good-text-color);
+  font-weight: bold;
+}
+
+/*---------------------------------------------------------------------------*/
+
+/*-------列表 ——  结束-------------------------------------------------------*/
+
+
+
+/*------ 引用 部分整体设置  -------------------------------------------------*/
+
+blockquote {
+  display: block;
+  font-size: 0.9em;
+  overflow: auto;
+  padding: 10px 10px 10px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: var(--blockquote-bg-color);
+  color: var(--good-text-color-dark) !important;
+  border-left: 5px solid var(--heading-border-color);
+  opacity: 1;
+}
+
+blockquote p {
+  margin: 0px;
+  color: var(--good-text-color-dark) !important;
+  line-height: 26px;
+}
+
+
+/*------ 引用 —— 结束-------------------------------------------------------*/
+
+
+
+
+/*------ 链接 部分整体设置  -------------------------------------------------*/
+a {
+  color: var(--good-text-color);
+  text-decoration: underline var(--good-text-color);
+  padding: 3px;
+  word-wrap: break-word;
+}
+
+a:hover {
+  font-weight: bold;
+  background-color: var(--good-bg-color);
+  border-radius: 3px;
+}
+
+
+/* 改变外网链接的颜色 */
+/*------ change the color of INTERNAL links ---------------------------------*/
+a[data-resource-id] {
+  color: var(--good-text-color);
+}
+
+/*---------------------------------------------------------------------------*/
+
+/* 改变其他链接图标颜色 */
+/*------ change other resource link icons color to internal link color ------*/
+.resource-icon {
+  background-color: var(--good-text-color);
+}
+
+/*---------------------------------------------------------------------------*/
+
+
+/*----- 链接 —— 结束--------------------------------------------------------*/
+
+
+
+/*---行内代码，一行内部的单词代码，字体大小，字体样式-------------------------*/
+.inline-code {
+  font-size: 1em;
+  word-wrap: break-word;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin: 0 2px;
+  /*   color: var(--good-text-color); */
+  border: 2px solid var(--heading-border-color);
+  font-family: Fira Code Medium, HarmonyOS Sans SC Medium, Consolas, 宋体;
+  word-break: break-all;
+}
+
+/*---行内代码 —— 结束---------------------------------------------------------*/
+
+
+/*---图片——整体设置-----------------------------------------------------------*/
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+span img {
+  display: inline-block;
+  border-right: 0px;
+  border-left: 0px;
+}
+
+/*---图片 —— 结束-------------------------------------------------------------*/
+
+
+/*---表格——整体设置-----------------------------------------------------------*/
+
+table {
+  display: table;
+  text-align: left;
+  border: 2px solid var(--heading-border-color);
+}
+
+table th {
+  border: 1px solid var(--heading-border-color);
+  border-bottom: 2px solid var(--heading-border-color);
+  background-color: var(--heading-bgcolor);
+}
+
+table td {
+  border: 1px solid var(--heading-border-color);
+  font-family: unset;
+}
+
+/*---表格 —— 结束------------------------------------------------------------*/
+
+
+/*---代码块----------------------------------------------------------------- */
+/*---预设格式，Add background and padding to preformatted text --------------*/
+pre {
+  padding: 1em;
+  background: var(--heading-bgcolor) !important;
+  border: 2px solid var(--heading-border-color);
+  border-radius: 3px;
+}
+
+
+pre.hljs {
+  padding: 1em;
+}
+
+code {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: Fira Code Medium, HarmonyOS Sans SC Medium, Consolas, 宋体;
+}
+
+pre code span {
+  background-color: unset;
+}
+
+/*---代码块 —— 结束 --------------------------------------------------------*/
+
+
+/*---分割线--------------------------------------------------------------- */
+
+hr {
+  border: none;
+  border-top: 6px ridge var(--good-text-color);
+}
+
+
+/*--分割线 —— 结束----------------------------------------------------------*/
+
+
+/*---删除线--------------------------------------------------------------- */
+
+s {
+
+  color: var(--heading-border-color);
+}
+
+/*---删除线 —— 结束---------------------------------------------------------*/
+
+
+
+/*---标记  Colors for different mark tags ----------------------------------*/
+/* ==mark== */
+mark {
+  background-color: var(--mark-bgcolor);
+  padding: 1px 2px;
+}
+
+/* occurrences of search term */
+mark[data-markjs] {
+  background-color: var(--search-result-bgcolor);
+  padding: 0;
+}
+
+/* current search term (local search) */
+mark[data-markjs].mark-selected {
+  background-color: var(--current-search-result-bgcolor);
+}
+
+/*----标记 —— 结束  --------------------------------------------------------*/
+
+
+
+
+/*------ 目录 含侧边目录，TOC 设置 ------------------------------------------*/
+/*------ TOC: 目录序号，利用计数添加序号 --------------------*/
+/*------ TOC: Use nested counters for list items ----------*/
+.table-of-contents ol {
+  counter-reset: list-item;
+}
+
+.table-of-contents li {
+  display: block;
+  counter-increment: list-item;
+}
+
+.table-of-contents li:before {
+  content: counters(list-item, ".") ".\0000a0";
+}
+
+/*-----TOC: 目录序号 —— 结束--------------------------------*/
+
+/*------ TOC: Make TOC a fixed height and scrollable ------*/
+/*
+   .table-of-contents {
+       overflow-y: auto;
+       height: 18em;
+   }
+   */
+/*---------------------------------------------------------*/
+
+/*------ TOC: 侧边目录，鼠标移到侧边弹出目录，此目录不打印---------------------*/
+/*------ TOC: Sidebar (move mouse to right edge) ----------*/
+@media not print {
+  nav.table-of-contents ul {
+    list-style-type: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  nav.table-of-contents>ul {
+    top: 5px;
+    right: 0px;
+    z-index: 99;
+
+    font-size: 12px;
+    position: fixed;
+    padding: 15px;
+
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 10px;
+
+    overflow: hidden;
+    height: 90%;
+    /* 鼠标移动到右边，距离多少触发显示侧边栏 */
+    width: 20%;
+    /* 侧边目录滑出动画时长 */
+    transition: 0.3s;
+  }
+
+  /* nav.table-of-contents::after {
+           content: "[TOC - move your cursor to the right edge]";
+       } */
+
+  nav.table-of-contents>ul:hover {
+    background: var(--good-bg-color);
+    box-shadow: -5px 0px 10px 0px var(--blockquote-bg-color);
+
+    width: 40%;
+    overflow: auto;
+  }
+
+  /* 在侧边目录最上方显示的信息 */
+  /* nav.table-of-contents>ul:hover::before {
+    content: "TABLE OF CONTENTS";
+  } */
+
+  nav.table-of-contents>ul:hover li {
+    color: var(--good-text-color);
+    display: list-item;
+  }
+
+  nav.table-of-contents li {
+    display: none;
+    white-space: nowrap;
+    /* 注释下面这行，显示横向的滚动条 */
+    /* overflow: hidden; */
+    margin: 0px;
+    border-left: 1px solid var(--heading-border-color);
+    padding-left: 5px;
+  }
+
+  nav.table-of-contents a {
+    background-color: unset;
+    color: var(--good-text-color-light);
+    text-decoration: none;
+  }
+
+  nav.table-of-contents a:hover {
+    color: var(--good-text-color-dark);
+    background-color: var(--good-text-color-light);
+  }
+}
+
+/*----TOC: 侧边目录 —— 结束---------------------------------*/
+/*------ 目录 含侧边目录，TOC 设置 —— 结束-------------------------------------*/
+
+
+/*------ Katex: Make font (symbols and formulas) bigger ---------------------*/
+/*
+   .katex {
+       font-size: 1.6em;
+   }
+   */
+/*---------------------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------------------*/
+
+/*------ do not display the Joplin resource icon ----------------------------*/
+/*
+   .resource-icon.fa-joplin {
+       display: none;
+   }
+   */
+/*---------------------------------------------------------------------------*/
+
+/*------ Better alignment for resource icons --------------------------------*/
+.resource-icon {
+  top: 0.4em !important;
+}
+
+/*---------------------------------------------------------------------------*/
+
+/*------ thinner outline for links and sections -----------------------------*/
+a,
+summary {
+  outline-width: 3px;
+}
+
+/*---------------------------------------------------------------------------*/
+
+/*------ no outline for sections --------------------------------------------*/
+summary {
+  outline: none;
+}
+
+/*---------------------------------------------------------------------------*/
+
+
+/*------ 导出 PDF 设置 -------------------------------------------------------*/
+/*------ Print: Adjustments for printing and PDF export ---------------------*/
+@media print {
+
+  /*----为预设格式的文本重新设置背景、边距---------------- */
+  /* reset background and padding for preformatted text */
+  pre {
+    padding: unset;
+    background: unset;
+  }
+
+  /*-------- h1-h6，标题样式设置 -----------------------*/
+  h1 {
+    background-color: var(--heading-bgcolor);
+    color: var(--h1-text-color);
+    border-radius: 3px;
+    border: 2px solid var(--heading-border-color);
+    text-align: center;
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+    font-size: 2.2em;
+    line-height: 1.2;
+    /* 一级标题强制分配到右页，新开一页 */
+    /* page-break-before: left; */
+  }
+
+  h2 {
+    background-color: unset;
+    color: var(--h2-text-color);
+    font-size: 1.8em;
+    line-height: 1.4;
+    border-bottom: 3px solid var(--heading-border-color);
+  }
+
+  h3 {
+    background-color: var(--heading-bgcolor);
+    color: var(--h3-text-color);
+    font-size: 1.4em;
+    line-height: 1.43;
+    padding-left: 9px;
+    border-left: 3px solid var(--heading-border-color);
+  }
+
+  h4 {
+    background-color: unset;
+    color: var(--h4-text-color);
+    font-size: 1.2em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: inline-block;
+    border: 0.5px solid var(--heading-border-color);
+    border-left: 3px solid var(--heading-border-color);
+    border-right: 3px solid var(--heading-border-color);
+  }
+
+  h5 {
+    background-color: unset;
+    color: var(--h5-text-color);
+    font-size: 1.2em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-left: 2px solid var(--heading-border-color);
+  }
+
+  h6 {
+    background-color: unset;
+    color: var(--h6-text-color);
+    font-size: 1.2em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: inline-block;
+    border: 0.5px solid var(--heading-border-color);
+  }
+
+  /*-------- h1-h6，标题样式 —— 结束 ---------------------*/
+
+  /*-------- 导出PDF时，不打印最上方的文章标题-------------*/
+  /* do not print note title (or when exporting to PDF) */
+  /*
+       .exported-note-title {
+           display: none !important;
+       }
+       */
+
+  /* -------- 导出PDF时，不打印双链，锚点----------------- */
+  /* do not print the anchor link symbol when the "Copy Anchor Link" */
+  /* plugin is active -----------------------------------*/
+  .cai-gf {
+    display: none;
+  }
+
+  /* 导出pdf时，不在[TOC]的位置打印出TOC目录------------- */
+  nav.table-of-contents {
+    /* 导出pdf时，不在[TOC]的位置打印出TOC目录 */
+    /* display: none; */
+
+    /* TOC目录页面后进行分页，下一页开始正文 */
+    page-break-after: right;
+  }
+
+  @page {
+    /* portrait是竖向，landscape是横向 */
+    size: A4 portrait;
+    /* 国家标准公文页边距 GB/T 9704-2012 */
+    margin: 3.7cm 2.6cm 3.5cm;
+
+  }
+
+
+}
+
+/*------ 导出 PDF —— 结束 --------------------------------------------------*/
