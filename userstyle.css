@@ -1,11 +1,11 @@
 /* For styling the rendered Markdown */
 /*****************************************************************************
- * Theme of Glaceroi for joplin
+ * Theme of bo for joplin
  * Rendered Markdown
  *****************************************************************************/
 
 :root {
-  --font-size: 13px;
+  --font-size: 14px;
 
   /* 标记的背景颜色 */
   --mark-bgcolor: #bbdd66;
@@ -42,18 +42,16 @@
 
   /* 浅色字体背景颜色*/
   --good-bg-color: #080808dc;
-
-
 }
 
 /*------BODY 全部字体大小到 --font-size ---------------------------------------*/
 body {
   font-size: var(--font-size);
   font-family: HarmonyOS Sans SC Medium;
+  line-height: 2em;
 }
 
 /*------BODY 结束 ------------------------------------------------------------*/
-
 
 /*------ 段落——部分的属性设置 -------------------------------------------------*/
 
@@ -61,11 +59,10 @@ p {
   padding-top: 8px;
   padding-bottom: 8px;
   margin: 0;
-  line-height: 28px;
+  line-height: 2em;
 }
 
 /*------段落——结束------------------------------------------------------------*/
-
 
 /*------ 标题设置  ---------------------------------------------------*/
 /*------ 标题共同部分设置 ----------------------------*/
@@ -76,6 +73,13 @@ h4,
 h5,
 h6 {
   font-weight: bold;
+  /* 所有标题前面空两行 */
+  margin-top: 2em;
+}
+
+/* 第一个h1元素前面不空2行 */
+h1:first-of-type {
+  margin-top: 0em;
 }
 
 /*------ 标题单独部分设置 ----------------------------*/
@@ -174,7 +178,6 @@ h6 {
   counter-reset: unset;
 }
 
-
 h1:before {
   counter-increment: h1counter;
   content: counter(h1counter) ".\0000a0\0000a0";
@@ -187,7 +190,8 @@ h2:before {
 
 h3:before {
   counter-increment: h3counter;
-  content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+  content: counter(h1counter) "." counter(h2counter) "." counter(h3counter)
+    ".\0000a0\0000a0";
 }
 
 h4:before {
@@ -205,13 +209,12 @@ h5:before {
 h6:before {
   counter-increment: h6counter;
   content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) "."
-    counter(h4counter) "." counter(h5counter) "." counter(h6counter) ".\0000a0\0000a0";
+    counter(h4counter) "." counter(h5counter) "." counter(h6counter)
+    ".\0000a0\0000a0";
 }
 
 /*------------------------------*/
 /*---标题设置——结束----------------------------------------------------------*/
-
-
 
 /*------ 列表 部分整体设置  -------------------------------------------------*/
 ul,
@@ -223,7 +226,6 @@ ol {
 li::marker {
   color: var(--heading-border-color);
 }
-
 
 /*--任务列表 checkbox align checkbox to the first line (baseline) ------------*/
 
@@ -241,8 +243,6 @@ li.md-checkbox .checkbox-wrapper {
 /*---------------------------------------------------------------------------*/
 
 /*-------列表 ——  结束-------------------------------------------------------*/
-
-
 
 /*------ 引用 部分整体设置  -------------------------------------------------*/
 
@@ -262,14 +262,10 @@ blockquote {
 blockquote p {
   margin: 0px;
   color: var(--good-text-color-dark) !important;
-  line-height: 26px;
+  line-height: 2em;
 }
 
-
 /*------ 引用 —— 结束-------------------------------------------------------*/
-
-
-
 
 /*------ 链接 部分整体设置  -------------------------------------------------*/
 a {
@@ -284,7 +280,6 @@ a:hover {
   background-color: var(--good-bg-color);
   border-radius: 3px;
 }
-
 
 /* 改变外网链接的颜色 */
 /*------ change the color of INTERNAL links ---------------------------------*/
@@ -302,10 +297,7 @@ a[data-resource-id] {
 
 /*---------------------------------------------------------------------------*/
 
-
 /*----- 链接 —— 结束--------------------------------------------------------*/
-
-
 
 /*---行内代码，一行内部的单词代码，字体大小，字体样式-------------------------*/
 .inline-code {
@@ -314,14 +306,13 @@ a[data-resource-id] {
   padding: 2px 4px;
   border-radius: 4px;
   margin: 0 2px;
-  /*   color: var(--good-text-color); */
+  background-color: var(--heading-bgcolor);
   border: 2px solid var(--heading-border-color);
   font-family: Fira Code Medium, HarmonyOS Sans SC Medium, Consolas, 宋体;
   word-break: break-all;
 }
 
 /*---行内代码 —— 结束---------------------------------------------------------*/
-
 
 /*---图片——整体设置-----------------------------------------------------------*/
 
@@ -339,7 +330,6 @@ span img {
 }
 
 /*---图片 —— 结束-------------------------------------------------------------*/
-
 
 /*---表格——整体设置-----------------------------------------------------------*/
 
@@ -362,7 +352,6 @@ table td {
 
 /*---表格 —— 结束------------------------------------------------------------*/
 
-
 /*---代码块----------------------------------------------------------------- */
 /*---预设格式，Add background and padding to preformatted text --------------*/
 pre {
@@ -371,7 +360,6 @@ pre {
   border: 2px solid var(--heading-border-color);
   border-radius: 3px;
 }
-
 
 pre.hljs {
   padding: 1em;
@@ -388,7 +376,6 @@ pre code span {
 
 /*---代码块 —— 结束 --------------------------------------------------------*/
 
-
 /*---分割线--------------------------------------------------------------- */
 
 hr {
@@ -396,20 +383,15 @@ hr {
   border-top: 6px ridge var(--good-text-color);
 }
 
-
 /*--分割线 —— 结束----------------------------------------------------------*/
-
 
 /*---删除线--------------------------------------------------------------- */
 
 s {
-
   color: var(--heading-border-color);
 }
 
 /*---删除线 —— 结束---------------------------------------------------------*/
-
-
 
 /*---标记  Colors for different mark tags ----------------------------------*/
 /* ==mark== */
@@ -430,9 +412,6 @@ mark[data-markjs].mark-selected {
 }
 
 /*----标记 —— 结束  --------------------------------------------------------*/
-
-
-
 
 /*------ 目录 含侧边目录，TOC 设置 ------------------------------------------*/
 /*------ TOC: 目录序号，利用计数添加序号 --------------------*/
@@ -470,22 +449,24 @@ mark[data-markjs].mark-selected {
     margin-bottom: 0px;
   }
 
-  nav.table-of-contents>ul {
-    top: 5px;
+  nav.table-of-contents > ul {
+    /* 目录完整显示前样式，显示一个漂浮的块 */
+    background: var(--heading-border-color);
+    top: 20%;
     right: 0px;
     z-index: 99;
 
     font-size: 12px;
     position: fixed;
-    padding: 15px;
+    padding: 12px;
 
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 0px 0px 10px;
     margin-right: 10px;
 
-    overflow: hidden;
-    height: 90%;
-    /* 鼠标移动到右边，距离多少触发显示侧边栏 */
-    width: 20%;
+    overflow: scroll;
+    /* 目录完整显示前宽高 */
+    height: 10%;
+    width: 10px;
     /* 侧边目录滑出动画时长 */
     transition: 0.3s;
   }
@@ -494,10 +475,11 @@ mark[data-markjs].mark-selected {
            content: "[TOC - move your cursor to the right edge]";
        } */
 
-  nav.table-of-contents>ul:hover {
+  nav.table-of-contents > ul:hover {
+    /* 目录完整显示后样式 */
+    top: 0px;
     background: var(--good-bg-color);
-    box-shadow: -5px 0px 10px 0px var(--blockquote-bg-color);
-
+    height: 90%;
     width: 40%;
     overflow: auto;
   }
@@ -507,7 +489,7 @@ mark[data-markjs].mark-selected {
     content: "TABLE OF CONTENTS";
   } */
 
-  nav.table-of-contents>ul:hover li {
+  nav.table-of-contents > ul:hover li {
     color: var(--good-text-color);
     display: list-item;
   }
@@ -518,7 +500,7 @@ mark[data-markjs].mark-selected {
     /* 注释下面这行，显示横向的滚动条 */
     /* overflow: hidden; */
     margin: 0px;
-    border-left: 1px solid var(--heading-border-color);
+    border-left: 1px solid var(--good-text-color);
     padding-left: 5px;
   }
 
@@ -537,7 +519,6 @@ mark[data-markjs].mark-selected {
 /*----TOC: 侧边目录 —— 结束---------------------------------*/
 /*------ 目录 含侧边目录，TOC 设置 —— 结束-------------------------------------*/
 
-
 /*------ Katex: Make font (symbols and formulas) bigger ---------------------*/
 /*
    .katex {
@@ -545,7 +526,6 @@ mark[data-markjs].mark-selected {
    }
    */
 /*---------------------------------------------------------------------------*/
-
 
 /*---------------------------------------------------------------------------*/
 
@@ -579,11 +559,9 @@ summary {
 
 /*---------------------------------------------------------------------------*/
 
-
 /*------ 导出 PDF 设置 -------------------------------------------------------*/
 /*------ Print: Adjustments for printing and PDF export ---------------------*/
 @media print {
-
   /*----为预设格式的文本重新设置背景、边距---------------- */
   /* reset background and padding for preformatted text */
   pre {
@@ -690,11 +668,8 @@ summary {
     /* portrait是竖向，landscape是横向 */
     size: A4 portrait;
     /* 国家标准公文页边距 GB/T 9704-2012 */
-    margin: 3.7cm 2.6cm 3.5cm;
-
+    /* margin: 3.7cm 2.6cm 3.5cm; */
   }
-
-
 }
 
 /*------ 导出 PDF —— 结束 --------------------------------------------------*/
