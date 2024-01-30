@@ -75,6 +75,8 @@ h6 {
   font-weight: bold;
   /* 所有标题前面空两行 */
   margin-top: 2em;
+  /* 避免标题前分页 */
+  page-break-after: avoid;
 }
 
 /* 第一个h1元素前面不空2行 */
